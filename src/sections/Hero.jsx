@@ -48,7 +48,8 @@ export const Hero = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(30)].map((_, i) => (
           <div
-            className="absolute w-1.5 h-1.5 rounded-full opacity/60"
+            key={i}
+            className="absolute w-1.5 h-1.5 rounded-full opacity/60 animate-pulse"
             style={{
               backgroundColor: "#20B2A6",
               left: `${Math.random() * 100}%`,
@@ -77,13 +78,12 @@ export const Hero = () => {
             {/* Headline */}
             <div className="space-y-4">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100">
-                Engineering clean,{" "}
-                <span className="text-primary glow-text">efficient</span>
+                Creating <span className="text-primary glow-text">fast</span>,
                 <br />
-                and user-centered
+                and user-friendly
                 <br />
                 <span className="font-serif italic font-normal text-white">
-                  web experiences.
+                  web interfaces.
                 </span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
@@ -92,39 +92,42 @@ export const Hero = () => {
                 React, Next.js, and TypeScript.
               </p>
             </div>
-          </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-            <Button size="lg">
-              Contact Me <ArrowRight className="w-5 h-5" />
-            </Button>
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
+              <Button size="lg">
+                Contact Me <ArrowRight className="w-5 h-5" />
+              </Button>
 
-            <AnimatedBorderButton>
-              <Download className="w-5 h-5" />
-              Download CV
-            </AnimatedBorderButton>
-          </div>
+              <AnimatedBorderButton>
+                <Download className="w-5 h-5" />
+                Download CV
+              </AnimatedBorderButton>
+            </div>
 
-          {/* Social Links */}
-          <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
-            <span className="text-sm text-muted-foreground">Follow me: </span>
-            {[
-              { icon: Github, href: "https://github.com/RodGondin" },
-              {
-                icon: Linkedin,
-                href: "https://www.linkedin.com/in/rodgondin/",
-              },
-              { icon: Instagram, href: "https://www.instagram.com/rodgondin/" },
-            ].map((social, idx) => (
-              <a
-                key={idx}
-                href={social.href}
-                className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
-              >
-                {<social.icon className="w-5 h-5" />}
-              </a>
-            ))}
+            {/* Social Links */}
+            <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
+              <span className="text-sm text-muted-foreground">Follow me: </span>
+              {[
+                { icon: Github, href: "https://github.com/RodGondin" },
+                {
+                  icon: Linkedin,
+                  href: "https://www.linkedin.com/in/rodgondin/",
+                },
+                {
+                  icon: Instagram,
+                  href: "https://www.instagram.com/rodgondin/",
+                },
+              ].map((social, idx) => (
+                <a
+                  key={idx}
+                  href={social.href}
+                  className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
+                >
+                  {<social.icon className="w-5 h-5" />}
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Right Column - Profile Image */}
